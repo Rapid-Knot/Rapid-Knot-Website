@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apply | Rapid Knot</title>
+<meta name="description" content="Apply for a role at Rapid Knot.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪢</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10233B; --paper:#F5F7F9; --teal:#0E7C86; --rope:#E9B44C; --mist:#DDE5EB; --muted:#48596D; --err:#B3261E;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;font-size:1.0625rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+header{padding:1.25rem 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{font-family:var(--display);font-weight:800;font-size:1.35rem;text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:1.5rem;align-items:center}
+nav a{text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover,nav a[aria-current]{color:var(--ink)}
+nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--rope);text-decoration-thickness:3px;text-underline-offset:6px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);padding:.8rem 1.4rem;border:0;border-radius:6px;font:inherit;font-weight:600;text-decoration:none;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--teal)}
+.btn[disabled]{opacity:.6;cursor:wait}
+nav .btn{color:var(--paper);padding:.55rem 1.1rem}
+
+.narrow{max-width:680px;margin:0 auto;padding:0 1.5rem}
+.head{padding:2.5rem 0 2rem}
+.back{font-weight:500;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--ink)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.05;letter-spacing:-.03em;margin-top:1.25rem}
+.head p{margin-top:1rem;color:var(--muted)}
+
+form{padding-bottom:5rem}
+.field{margin-bottom:1.5rem}
+label{display:block;font-weight:600;margin-bottom:.35rem}
+.hint{font-weight:400;color:var(--muted);font-size:.92rem}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1.5px solid #B7C3CF;border-radius:6px;padding:.7rem .85rem}
+input:hover,select:hover,textarea:hover{border-color:var(--ink)}
+textarea{min-height:10rem;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.trap{position:absolute;left:-9999px;height:0;overflow:hidden}
+.status{margin-top:1rem;min-height:1.5rem;font-weight:500}
+.status.err{color:var(--err)}
+.done{padding:1.75rem;border-top:4px solid var(--rope);background:#fff;border-radius:0 0 6px 6px}
+.done h2{font-family:var(--display);font-size:1.6rem;margin-bottom:.5rem}
+.done p{color:var(--muted);margin-bottom:1.25rem}
+footer{padding:2rem 0;font-size:.95rem;color:var(--muted);border-top:1px solid var(--mist)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+@media (max-width:640px){.row{grid-template-columns:1fr}nav a:not(.btn){display:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Rapid Knot</a>
+    <nav aria-label="Main">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#process">How we work</a>
+      <a href="careers.html" aria-current="page">Careers</a>
+      <a class="btn" href="index.html#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main class="narrow">
+  <div class="head">
+    <a class="back" href="careers.html">Back to open roles</a>
+    <h1>Apply to Rapid Knot</h1>
+    <p>Fill out the form below. Fields marked with * are required. We read every application.</p>
+  </div>
+
+  <form id="app" novalidate>
+    <div class="field">
+      <label for="role">Role *</label>
+      <select id="role" name="role" required>
+        <option value="">Choose a role</option>
+        <option>Software Engineer</option>
+        <option>DevOps Engineer</option>
+        <option>Frontend Engineer</option>
+        <option>General application</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="name">Full name *</label>
+        <input id="name" name="name" type="text" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="email">Email *</label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="phone">Phone <span class="hint">(optional)</span></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="location">Location <span class="hint">(city, country)</span></label>
+        <input id="location" name="location" type="text" autocomplete="address-level2">
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="resume">Link to your resume *</label>
+      <input id="resume" name="resume_link" type="url" placeholder="https://" required>
+      <div class="hint">Share a Google Drive, Dropbox, or personal site link. Make sure anyone with the link can view it.</div>
+    </div>
+
+    <div class="field">
+      <label for="links">GitHub, LinkedIn, or portfolio <span class="hint">(optional)</span></label>
+      <input id="links" name="profile_links" type="text" placeholder="Paste one or more links">
+    </div>
+
+    <div class="field">
+      <label for="msg">Tell us about yourself *</label>
+      <textarea id="msg" name="message" maxlength="1000" required></textarea>
+      <div class="hint">A few lines on your experience and why this role interests you.</div>
+    </div>
+
+    <div class="trap" aria-hidden="true">
+      <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+    </div>
+
+    <button class="btn" type="submit" id="submit">Submit application</button>
+    <div class="status" id="status" role="status" aria-live="polite"></div>
+  </form>
+
+  <div class="done" id="done" hidden>
+    <h2>Application received</h2>
+    <p>Thank you for applying. We'll review your application and get back to you at the email address you provided.</p>
+    <a class="btn" href="careers.html">Back to careers</a>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Rapid Knot. All rights reserved.</span>
+    <a href="https://github.com/" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script src="site.js"></script>
+<script>
+(function(){
+  var form=document.getElementById('app'),
+      role=document.getElementById('role'),
+      status=document.getElementById('status'),
+      btn=document.getElementById('submit'),
+      done=document.getElementById('done'),
+      opened=Date.now();
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // Preselect role from ?role=... in the link
+  var wanted=new URLSearchParams(location.search).get('role');
+  if(wanted){
+    var found=false;
+    for(var i=0;i<role.options.length;i++){ if(role.options[i].text===wanted){role.selectedIndex=i;found=true;} }
+    if(!found){ var o=document.createElement('option'); o.textContent=wanted; role.appendChild(o); role.value=wanted; }
+  }
+
+  function fail(msg){ status.className='status err'; status.textContent=msg; btn.disabled=false; btn.textContent='Submit application'; }
+  function finish(){ form.hidden=true; done.hidden=false; done.scrollIntoView({behavior:'smooth'}); }
+  function val(id){ return document.getElementById(id).value.trim(); }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    status.className='status'; status.textContent='';
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    // Spam checks: filled hidden field or instant submit means a bot. Pretend success and send nothing.
+    if(form.elements['_gotcha'].value || Date.now()-opened<3000){ finish(); return; }
+
+    btn.disabled=true; btn.textContent='Sending...';
+    rkSend('New application: '+role.value, [
+      {name:'Role', value:role.value, inline:true},
+      {name:'Name', value:val('name'), inline:true},
+      {name:'Email', value:val('email'), inline:true},
+      {name:'Phone', value:val('phone'), inline:true},
+      {name:'Location', value:val('location'), inline:true},
+      {name:'Resume', value:val('resume')},
+      {name:'Profile links', value:val('links')},
+      {name:'About them', value:val('msg')}
+    ]).then(finish).catch(function(err){
+      fail(err.message==='Send failed' || err instanceof TypeError
+        ? 'Something went wrong sending your application. Please try again in a moment.'
+        : err.message);
+    });
+  });
+})();
+</script>
+</body>
+</html>
