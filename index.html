@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rapid Knot | Software engineering and technology</title>
+<meta name="description" content="Rapid Knot builds reliable software: custom applications, cloud infrastructure, and engineering support for teams that need to ship.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪢</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10233B; --paper:#F5F7F9; --teal:#0E7C86; --rope:#E9B44C; --mist:#DDE5EB; --muted:#48596D;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;font-size:1.0625rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+
+header{padding:1.25rem 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{font-family:var(--display);font-weight:800;font-size:1.35rem;text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:1.5rem;align-items:center}
+nav a{text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);padding:.8rem 1.4rem;border-radius:6px;font-weight:600;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--teal)}
+nav .btn{color:var(--paper);padding:.55rem 1.1rem}
+
+.hero{padding:3rem 0 5rem}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;letter-spacing:-.03em;max-width:12ch}
+.hero p{margin:1.5rem 0 2rem;max-width:46ch;font-size:1.2rem;color:var(--muted)}
+.hero .actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.link{font-weight:600;text-decoration:underline;text-decoration-color:var(--rope);text-decoration-thickness:3px;text-underline-offset:5px}
+.knot{width:100%;max-width:400px;justify-self:center}
+.knot path{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:tie .9s ease-out forwards}
+.knot .o{stroke:var(--ink);stroke-width:.66}
+.knot .i{stroke:var(--rope);stroke-width:.4}
+@keyframes tie{to{stroke-dashoffset:0}}
+
+section{padding:4.5rem 0;border-top:1px solid var(--mist)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.8rem,3.6vw,2.6rem);letter-spacing:-.02em;line-height:1.1;max-width:20ch}
+.intro{margin-top:1rem;color:var(--muted);max-width:56ch}
+
+.services{margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;column-gap:4rem}
+.services div{padding:1.5rem 0;border-top:2px solid var(--ink)}
+.services h3{font-family:var(--display);font-size:1.3rem;font-weight:700;margin-bottom:.4rem}
+.services p{color:var(--muted);max-width:44ch}
+
+.steps{margin-top:2.5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;padding-top:1.25rem;border-top:4px solid var(--rope)}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:2rem;color:var(--teal);display:block;line-height:1;margin-bottom:.6rem}
+.steps h3{font-family:var(--display);font-size:1.15rem;margin-bottom:.3rem}
+.steps p{color:var(--muted);font-size:.98rem}
+
+.contact{background:var(--ink);color:var(--paper);border-top:none}
+.contact h2{max-width:16ch}
+.contact .intro{color:#B9C6D3}
+.contact .btn{background:var(--rope);color:var(--ink);margin-top:2rem}
+.contact .btn:hover{background:#fff}
+
+footer{padding:2rem 0;font-size:.95rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr}
+  .knot{max-width:260px;order:-1;justify-self:start}
+  .services{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  nav a:not(.btn){display:none}
+}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .knot path{animation:none;stroke-dashoffset:0}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Rapid Knot</a>
+    <nav aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#process">How we work</a>
+      <a class="btn" href="#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Software that holds under load.</h1>
+        <p>Rapid Knot is a software engineering company. We design, build, and run the systems that businesses depend on, and we tie up the loose ends before they cause outages.</p>
+        <div class="actions">
+          <a class="btn" href="#contact">Start a project</a>
+          <a class="link" href="#services">See what we build</a>
+        </div>
+      </div>
+      <svg class="knot" id="knot" viewBox="-3.6 -3.6 7.2 7.2" role="img" aria-label="A rope tied in a knot"></svg>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What we build</h2>
+      <p class="intro">Engineering for teams that need dependable software, whether you're starting from scratch or fixing what's already running.</p>
+      <div class="services">
+        <div>
+          <h3>Custom software</h3>
+          <p>Web applications, internal tools, and APIs built around how your business actually works.</p>
+        </div>
+        <div>
+          <h3>Mobile and web apps</h3>
+          <p>Fast, accessible products for customers and staff, from first prototype to production release.</p>
+        </div>
+        <div>
+          <h3>Cloud and DevOps</h3>
+          <p>Infrastructure, automated deployments, and monitoring so releases are routine, not risky.</p>
+        </div>
+        <div>
+          <h3>Technical consulting</h3>
+          <p>Architecture reviews, code audits, and hands-on guidance for your in-house engineers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <h2>How we work</h2>
+      <p class="intro">A clear process with regular check-ins, so you always know what's done and what's next.</p>
+      <ol class="steps">
+        <li><h3>Scope</h3><p>We agree on the problem, the users, and what success looks like.</p></li>
+        <li><h3>Build</h3><p>Short cycles with working software you can try at every step.</p></li>
+        <li><h3>Ship</h3><p>Tested, documented releases deployed through an automated pipeline.</p></li>
+        <li><h3>Support</h3><p>Monitoring, fixes, and improvements after launch.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Tell us what you're building.</h2>
+      <p class="intro">Send a short description of your project. We'll reply with questions and next steps.</p>
+      <a class="btn" href="mailto:hello@rapidknot.com">Email Rapid Knot</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Rapid Knot. All rights reserved.</span>
+    <a href="https://github.com/" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Trefoil knot drawn as three overlapping rope segments
+  var svg=document.getElementById('knot'),NS='http://www.w3.org/2000/svg',out='';
+  var seg=3,pts=70;
+  for(var s=0;s<seg;s++){
+    var d='';
+    for(var k=0;k<=pts;k++){
+      var t=(s+k/pts)*2*Math.PI/seg;
+      var x=Math.sin(t)+2*Math.sin(2*t), y=Math.cos(t)-2*Math.cos(2*t);
+      d+=(k?'L':'M')+x.toFixed(3)+' '+y.toFixed(3);
+    }
+    var delay=(s*0.75).toFixed(2)+'s';
+    out+='<path class="o" pathLength="1" style="animation-delay:'+delay+'" d="'+d+'"/>';
+    out+='<path class="i" pathLength="1" style="animation-delay:'+delay+'" d="'+d+'"/>';
+  }
+  svg.innerHTML=out;
+  document.getElementById('yr').textContent=new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
