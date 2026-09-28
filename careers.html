@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Careers | Rapid Knot</title>
+<meta name="description" content="Join Rapid Knot. See open roles in software engineering and apply by email.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪢</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10233B; --paper:#F5F7F9; --teal:#0E7C86; --rope:#E9B44C; --mist:#DDE5EB; --muted:#48596D;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.6;font-size:1.0625rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+
+header{padding:1.25rem 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{font-family:var(--display);font-weight:800;font-size:1.35rem;text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:1.5rem;align-items:center}
+nav a{text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover,nav a[aria-current]{color:var(--ink)}
+nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--rope);text-decoration-thickness:3px;text-underline-offset:6px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);padding:.8rem 1.4rem;border-radius:6px;font-weight:600;text-decoration:none;transition:background .2s}
+.btn:hover{background:var(--teal)}
+nav .btn{color:var(--paper);padding:.55rem 1.1rem}
+
+.page-head{padding:3rem 0 4rem}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,5.5vw,4rem);line-height:1.05;letter-spacing:-.03em;max-width:14ch}
+.page-head p{margin-top:1.25rem;max-width:52ch;font-size:1.2rem;color:var(--muted)}
+
+section{padding:4rem 0;border-top:1px solid var(--mist)}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.4rem);letter-spacing:-.02em;line-height:1.1;max-width:20ch}
+.intro{margin-top:1rem;color:var(--muted);max-width:56ch}
+
+.values{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.values div{padding-top:1.25rem;border-top:4px solid var(--rope)}
+.values h3{font-family:var(--display);font-size:1.2rem;margin-bottom:.4rem}
+.values p{color:var(--muted);font-size:.98rem}
+
+.roles{margin-top:2.5rem;list-style:none}
+.role{display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;padding:1.75rem 0;border-top:2px solid var(--ink)}
+.role:last-child{border-bottom:2px solid var(--ink)}
+.role h3{font-family:var(--display);font-size:1.35rem;font-weight:700}
+.meta{color:var(--muted);font-size:.95rem;margin:.2rem 0 .6rem}
+.role p{color:var(--muted);max-width:60ch}
+
+.open{background:var(--ink);color:var(--paper);border-top:none}
+.open .intro{color:#B9C6D3}
+.open .btn{background:var(--rope);color:var(--ink);margin-top:2rem}
+.open .btn:hover{background:#fff}
+.open ul{margin-top:1.25rem;padding-left:1.2rem;color:#B9C6D3}
+
+footer{padding:2rem 0;font-size:.95rem;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+@media (max-width:820px){
+  .values{grid-template-columns:1fr}
+  .role{grid-template-columns:1fr}
+  nav a:not(.btn){display:none}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="index.html">Rapid Knot</a>
+    <nav aria-label="Main">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#process">How we work</a>
+      <a href="careers.html" aria-current="page">Careers</a>
+      <a class="btn" href="index.html#contact">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page-head">
+    <div class="wrap">
+      <h1>Build software with us.</h1>
+      <p>We're an engineering company that cares about work that lasts. If you like solving real problems and shipping reliable code, we'd like to hear from you.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>How we work together</h2>
+      <div class="values">
+        <div><h3>Own your work</h3><p>You get clear goals and the trust to decide how to reach them.</p></div>
+        <div><h3>Ship carefully</h3><p>We write tests, review each other's code, and document what we build.</p></div>
+        <div><h3>Keep learning</h3><p>We share what we learn and make time to grow new skills.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="roles">
+    <div class="wrap">
+      <h2>Open roles</h2>
+      <p class="intro">Choose a role and click Apply. It opens an email with the role in the subject line. Attach your resume and a few lines about your experience.</p>
+      <ul class="roles">
+        <!-- Edit, add, or remove roles below. Copy one <li> per role. -->
+        <li class="role">
+          <div>
+            <h3>Software Engineer</h3>
+            <div class="meta">Full-time · Remote</div>
+            <p>Design and build web applications and APIs with our engineering team, from planning through release.</p>
+          </div>
+          <a class="btn" href="mailto:cbackupjustincase82@gmail.com?subject=Application%3A%20Software%20Engineer">Apply</a>
+        </li>
+        <li class="role">
+          <div>
+            <h3>DevOps Engineer</h3>
+            <div class="meta">Full-time · Remote</div>
+            <p>Own our cloud infrastructure, deployment pipelines, and monitoring for client projects.</p>
+          </div>
+          <a class="btn" href="mailto:backupjustincase82@gmail.com?subject=Application%3A%20DevOps%20Engineer">Apply</a>
+        </li>
+        <li class="role">
+          <div>
+            <h3>Frontend Engineer</h3>
+            <div class="meta">Contract · Remote</div>
+            <p>Build fast, accessible interfaces for web and mobile products.</p>
+          </div>
+          <a class="btn" href="mailto:backupjustincase82@gmail.com?subject=Application%3A%20Frontend%20Engineer">Apply</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="open">
+    <div class="wrap">
+      <h2>Don't see your role?</h2>
+      <p class="intro">We're always glad to meet strong engineers. Tell us what you do best and how you'd like to work with us.</p>
+      <a class="btn" href="mailto:backupjustincase82@gmail.com?subject=General%20application">Send a general application</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="yr">2026</span> Rapid Knot. All rights reserved.</span>
+    <a href="https://github.com/" rel="noopener">GitHub</a>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
