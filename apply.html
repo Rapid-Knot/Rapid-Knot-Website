@@ -46,6 +46,7 @@ label{display:block;font-weight:600;margin-bottom:.35rem}
 input,select,textarea{width:100%;font:inherit;color:var(--ink);background:#fff;border:1.5px solid #B7C3CF;border-radius:6px;padding:.7rem .85rem}
 input:hover,select:hover,textarea:hover{border-color:var(--ink)}
 textarea{min-height:10rem;resize:vertical}
+input[type=file]{padding:.55rem .7rem;cursor:pointer}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
 .trap{position:absolute;left:-9999px;height:0;overflow:hidden}
 .status{margin-top:1rem;min-height:1.5rem;font-weight:500}
@@ -114,9 +115,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
     </div>
 
     <div class="field">
-      <label for="resume">Link to your resume *</label>
-      <input id="resume" name="resume_link" type="url" placeholder="https://" required>
-      <div class="hint">Share a Google Drive, Dropbox, or personal site link. Make sure anyone with the link can view it.</div>
+      <label for="resume">Upload your resume *</label>
+      <input id="resume" name="resume" type="file" accept=".pdf,.doc,.docx" required>
+      <div class="hint">PDF or Word file, up to 8 MB.</div>
     </div>
 
     <div class="field">
@@ -125,9 +126,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
     </div>
 
     <div class="field">
-      <label for="msg">Tell us about yourself *</label>
-      <textarea id="msg" name="message" maxlength="1000" required></textarea>
-      <div class="hint">A few lines on your experience and why this role interests you.</div>
+      <label for="msg">Tell us about yourself <span class="hint">(optional)</span></label>
+      <textarea id="msg" name="message" maxlength="1000"></textarea>
+      <div class="hint">Anything you would like us to know, such as your experience or why this role interests you.</div>
     </div>
 
     <div class="trap" aria-hidden="true">
@@ -179,6 +180,10 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
     e.preventDefault();
     status.className='status'; status.textContent='';
     if(!form.checkValidity()){ form.reportValidity(); return; }
+    var file=document.getElementById('resume').files[0];
+    if(!file){ fail('Please choose your resume file.'); return; }
+    if(file.size>8*1024*1024){ fail('Your resume is larger than 8 MB. Please upload a smaller file.'); return; }
+    if(!/\.(pdf|docx?)$/i.test(file.name)){ fail('Please upload a PDF or Word file (.pdf, .doc, .docx).'); return; }
     // Spam checks: filled hidden field or instant submit means a bot. Pretend success and send nothing.
     if(form.elements['_gotcha'].value || Date.now()-opened<3000){ finish(); return; }
 
@@ -189,10 +194,9 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
       {name:'Email', value:val('email'), inline:true},
       {name:'Phone', value:val('phone'), inline:true},
       {name:'Location', value:val('location'), inline:true},
-      {name:'Resume', value:val('resume')},
       {name:'Profile links', value:val('links')},
       {name:'About them', value:val('msg')}
-    ]).then(finish).catch(function(err){
+    ], file).then(finish).catch(function(err){
       fail(err.message==='Send failed' || err instanceof TypeError
         ? 'Something went wrong sending your application. Please try again in a moment.'
         : err.message);
