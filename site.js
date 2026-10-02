@@ -27,20 +27,39 @@ function rkSend(title, fields, file) {
     embeds: [embed]
   };
 
-  var init = { method: "POST" };
-  if (file) {
-    // Discord webhooks accept file attachments as multipart form data
-    var fd = new FormData();
-    fd.append("payload_json", JSON.stringify(payload));
-    fd.append("files[0]", file, file.name);
-    init.body = fd;
-  } else {
-    init.headers = { "Content-Type": "application/json" };
-    init.body = JSON.stringify(payload);
+  // ?wait=true makes Discord reply with the posted message, so we can confirm the file is attached
+  var url = RK_WEBHOOK + "?wait=true";
+
+  function post(json, withFile) {
+    var init = { method: "POST" };
+    if (withFile) {
+      var fd = new FormData();
+      fd.append("payload_json", JSON.stringify(json));
+      fd.append("files[0]", withFile, withFile.name);
+      init.body = fd;
+    } else {
+      init.headers = { "Content-Type": "application/json" };
+      init.body = JSON.stringify(json);
+    }
+    return fetch(url, init).then(function (r) {
+      if (!r.ok) throw new Error("Send failed");
+      return r.json().catch(function () { return {}; });
+    });
   }
 
-  return fetch(RK_WEBHOOK, init).then(function (r) {
-    if (!r.ok) throw new Error("Send failed");
+  return post(payload, file).then(function (msg) {
+    var attached = msg && msg.attachments && msg.attachments.length > 0;
+    if (file && !attached) {
+      // The text arrived but the file did not: send the file again as its own message
+      return post({
+        username: "Rapid Knot Website",
+        allowed_mentions: { parse: [] },
+        content: "Resume file for: " + String(title).slice(0, 200)
+      }, file).then(function (m2) {
+        if (!(m2 && m2.attachments && m2.attachments.length > 0)) throw new Error("Send failed");
+      });
+    }
+  }).then(function () {
     try { localStorage.setItem("rk_last", String(Date.now())); } catch (e) {}
   });
 }
